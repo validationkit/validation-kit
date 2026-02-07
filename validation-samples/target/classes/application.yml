@@ -1,4 +1,0 @@
-validation:
-  errors:
-    enabled: true
-    include-allowed-values: true
