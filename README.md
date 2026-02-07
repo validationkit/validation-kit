@@ -1,6 +1,6 @@
 # Validation Kit
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.validationkit/validation-spring-boot-starter.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.github.validationkit%22%20AND%20a:%22validation-spring-boot-starter%22)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.validationkit/validation-spring-boot-starter.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.validationkit/validation-spring-boot-starter)
 
 A practical, modern validation library for Spring Boot applications.
 Validation Kit provides high-value custom constraints like `@AllowedValues`, `@Base64`, and `@FileExtension` that are missing from the standard Jakarta Bean Validation spec.
