@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="io.github.validationkit.validators.AllowedValuesValidatorTest" time="0.34" tests="8" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="25"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/Users/hrushikeshjoshi/Documents/Coding Projects/validation-kit/validation-core/target/test-classes:/Users/hrushikeshjoshi/Documents/Coding Projects/validation-kit/validation-core/target/classes:/Users/hrushikeshjoshi/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar:/Users/hrushikeshjoshi/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.2/junit-jupiter-5.10.2.jar:/Users/hrushikeshjoshi/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.2/junit-jupiter-api-5.10.2.jar:/Users/hrushikeshjoshi/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/hrushikeshjoshi/.m2/repository/org/junit/platform/junit-platform-commons/1.10.2/junit-platform-commons-1.10.2.jar:/Users/hrushikeshjoshi/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/hrushikeshjoshi/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.2/junit-jupiter-params-5.10.2.jar:/Users/hrushikeshjoshi/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.2/junit-jupiter-engine-5.10.2.jar:/Users/hrushikeshjoshi/.m2/repository/org/junit/platform/junit-platform-engine/1.10.2/junit-platform-engine-1.10.2.jar:/Users/hrushikeshjoshi/.m2/repository/org/hibernate/validator/hibernate-validator/8.0.1.Final/hibernate-validator-8.0.1.Final.jar:/Users/hrushikeshjoshi/.m2/repository/org/jboss/logging/jboss-logging/3.5.3.Final/jboss-logging-3.5.3.Final.jar:/Users/hrushikeshjoshi/.m2/repository/com/fasterxml/classmate/1.7.0/classmate-1.7.0.jar:/Users/hrushikeshjoshi/.m2/repository/org/glassfish/jakarta.el/4.0.2/jakarta.el-4.0.2.jar:/Users/hrushikeshjoshi/.m2/repository/jakarta/el/jakarta.el-api/4.0.0/jakarta.el-api-4.0.0.jar:/Users/hrushikeshjoshi/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/hrushikeshjoshi/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/hrushikeshjoshi/.m2/repository/net/bytebuddy/byte-buddy/1.14.16/byte-buddy-1.14.16.jar:/Users/hrushikeshjoshi/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.16/byte-buddy-agent-1.14.16.jar:/Users/hrushikeshjoshi/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:"/>
+    <property name="java.vm.vendor" value="Homebrew"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="user.timezone" value="Asia/Kolkata"/>
+    <property name="os.name" value="Mac OS X"/>
+    <property name="java.vm.specification.version" value="25"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="IN"/>
+    <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk/25/libexec/openjdk.jdk/Contents/Home/lib"/>
+    <property name="sun.java.command" value="/Users/hrushikeshjoshi/Documents/Coding Projects/validation-kit/validation-core/target/surefire/surefirebooter-20260208000109709_3.jar /Users/hrushikeshjoshi/Documents/Coding Projects/validation-kit/validation-core/target/surefire 2026-02-08T00-01-09_675-jvmRun1 surefire-20260208000109709_1tmp surefire_0-20260208000109709_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/Users/hrushikeshjoshi/Documents/Coding Projects/validation-kit/validation-core/target/test-classes:/Users/hrushikeshjoshi/Documents/Coding Projects/validation-kit/validation-core/target/classes:/Users/hrushikeshjoshi/.m2/repository/jakarta/validation/jakarta.validation-api/3.0.2/jakarta.validation-api-3.0.2.jar:/Users/hrushikeshjoshi/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.2/junit-jupiter-5.10.2.jar:/Users/hrushikeshjoshi/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.2/junit-jupiter-api-5.10.2.jar:/Users/hrushikeshjoshi/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/hrushikeshjoshi/.m2/repository/org/junit/platform/junit-platform-commons/1.10.2/junit-platform-commons-1.10.2.jar:/Users/hrushikeshjoshi/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/hrushikeshjoshi/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.2/junit-jupiter-params-5.10.2.jar:/Users/hrushikeshjoshi/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.2/junit-jupiter-engine-5.10.2.jar:/Users/hrushikeshjoshi/.m2/repository/org/junit/platform/junit-platform-engine/1.10.2/junit-platform-engine-1.10.2.jar:/Users/hrushikeshjoshi/.m2/repository/org/hibernate/validator/hibernate-validator/8.0.1.Final/hibernate-validator-8.0.1.Final.jar:/Users/hrushikeshjoshi/.m2/repository/org/jboss/logging/jboss-logging/3.5.3.Final/jboss-logging-3.5.3.Final.jar:/Users/hrushikeshjoshi/.m2/repository/com/fasterxml/classmate/1.7.0/classmate-1.7.0.jar:/Users/hrushikeshjoshi/.m2/repository/org/glassfish/jakarta.el/4.0.2/jakarta.el-4.0.2.jar:/Users/hrushikeshjoshi/.m2/repository/jakarta/el/jakarta.el-api/4.0.0/jakarta.el-api-4.0.0.jar:/Users/hrushikeshjoshi/.m2/repository/org/mockito/mockito-junit-jupiter/5.11.0/mockito-junit-jupiter-5.11.0.jar:/Users/hrushikeshjoshi/.m2/repository/org/mockito/mockito-core/5.11.0/mockito-core-5.11.0.jar:/Users/hrushikeshjoshi/.m2/repository/net/bytebuddy/byte-buddy/1.14.16/byte-buddy-1.14.16.jar:/Users/hrushikeshjoshi/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.16/byte-buddy-agent-1.14.16.jar:/Users/hrushikeshjoshi/.m2/repository/org/objenesis/objenesis/3.3/objenesis-3.3.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/Users/hrushikeshjoshi"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-09-16"/>
+    <property name="java.home" value="/opt/homebrew/Cellar/openjdk/25/libexec/openjdk.jdk/Contents/Home"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/Users/hrushikeshjoshi/Documents/Coding Projects/validation-kit/validation-core"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="apple.awt.application.name" value="ForkedBooter"/>
+    <property name="surefire.real.class.path" value="/Users/hrushikeshjoshi/Documents/Coding Projects/validation-kit/validation-core/target/surefire/surefirebooter-20260208000109709_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.runtime.version" value="25"/>
+    <property name="user.name" value="hrushikeshjoshi"/>
+    <property name="stdout.encoding" value="UTF-8"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="26.2"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Homebrew"/>
+    <property name="localRepository" value="/Users/hrushikeshjoshi/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/Homebrew/homebrew-core/issues"/>
+    <property name="java.io.tmpdir" value="/var/folders/qj/xrt581sd5h13xkbmds1kkvsc0000gn/T/"/>
+    <property name="java.version" value="25"/>
+    <property name="user.dir" value="/Users/hrushikeshjoshi/Documents/Coding Projects/validation-kit/validation-core"/>
+    <property name="os.arch" value="aarch64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/Users/hrushikeshjoshi/Library/Java/Extensions:/Library/Java/Extensions:/Network/Library/Java/Extensions:/System/Library/Java/Extensions:/usr/lib/java:."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="UTF-8"/>
+    <property name="java.vendor" value="Homebrew"/>
+    <property name="java.vm.version" value="25"/>
+    <property name="stdin.encoding" value="UTF-8"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
+    <property name="java.class.version" value="69.0"/>
+  </properties>
+  <testcase name="shouldReturnTrueForNullWhenAcceptNullIsTrue" classname="io.github.validationkit.validators.AllowedValuesValidatorTest" time="0.33">
+    <system-err><![CDATA[WARNING: A Java agent has been loaded dynamically (/Users/hrushikeshjoshi/.m2/repository/net/bytebuddy/byte-buddy-agent/1.14.16/byte-buddy-agent-1.14.16.jar)
+WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+WARNING: Dynamic loading of agents will be disallowed by default in a future release
+]]></system-err>
+  </testcase>
+  <testcase name="shouldValidateListCorrectly" classname="io.github.validationkit.validators.AllowedValuesValidatorTest" time="0.001"/>
+  <testcase name="shouldReturnFalseForNullWhenAcceptNullIsFalse" classname="io.github.validationkit.validators.AllowedValuesValidatorTest" time="0.0"/>
+  <testcase name="shouldReturnTrueForIgnorableValues" classname="io.github.validationkit.validators.AllowedValuesValidatorTest" time="0.0"/>
+  <testcase name="shouldValidateArrayCorrectly" classname="io.github.validationkit.validators.AllowedValuesValidatorTest" time="0.0"/>
+  <testcase name="shouldValidateStringCorrectly" classname="io.github.validationkit.validators.AllowedValuesValidatorTest" time="0.001"/>
+  <testcase name="shouldValidateObjectToString" classname="io.github.validationkit.validators.AllowedValuesValidatorTest" time="0.0"/>
+  <testcase name="shouldValidateStringCaseInsensitive" classname="io.github.validationkit.validators.AllowedValuesValidatorTest" time="0.001"/>
+</testsuite>

@@ -1,0 +1,7 @@
+io/github/validationkit/validators/AllowedValuesValidator.class
+io/github/validationkit/util/ValidationUtils.class
+io/github/validationkit/validators/Base64Validator.class
+io/github/validationkit/validators/FileExtensionValidator.class
+io/github/validationkit/constraints/AllowedValues.class
+io/github/validationkit/constraints/FileExtension.class
+io/github/validationkit/constraints/Base64.class

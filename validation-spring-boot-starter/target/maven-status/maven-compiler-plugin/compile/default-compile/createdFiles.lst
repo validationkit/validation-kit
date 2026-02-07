@@ -1,0 +1,5 @@
+io/github/validationkit/starter/configuration/ValidationAutoConfiguration.class
+io/github/validationkit/starter/configuration/ValidationProperties.class
+io/github/validationkit/starter/exception/ValidationErrorResponse$ValidationError.class
+io/github/validationkit/starter/exception/GlobalValidationExceptionHandler.class
+io/github/validationkit/starter/exception/ValidationErrorResponse.class
