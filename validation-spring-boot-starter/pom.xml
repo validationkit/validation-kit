@@ -6,10 +6,12 @@
     <parent>
         <groupId>io.github.validationkit</groupId>
         <artifactId>validation-kit-parent</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.1</version>
     </parent>
 
     <artifactId>validation-spring-boot-starter</artifactId>
+    <name>validation-spring-boot-starter</name>
+    <description>Spring Boot Starter for auto-configuring Validation Kit.</description>
 
     <dependencies>
         <dependency>

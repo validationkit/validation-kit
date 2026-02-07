@@ -1,5 +1,7 @@
 # Validation Kit
 
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.validationkit/validation-spring-boot-starter.svg?label=Maven%20Central)](https://search.maven.org/search?q=g:%22io.github.validationkit%22%20AND%20a:%22validation-spring-boot-starter%22)
+
 A practical, modern validation library for Spring Boot applications.
 Validation Kit provides high-value custom constraints like `@AllowedValues`, `@Base64`, and `@FileExtension` that are missing from the standard Jakarta Bean Validation spec.
 
@@ -22,7 +24,7 @@ Add the dependency to your `pom.xml`:
 <dependency>
     <groupId>io.github.validationkit</groupId>
     <artifactId>validation-spring-boot-starter</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
 </dependency>
 ```
 

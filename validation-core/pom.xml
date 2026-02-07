@@ -6,10 +6,12 @@
     <parent>
         <groupId>io.github.validationkit</groupId>
         <artifactId>validation-kit-parent</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.1</version>
     </parent>
 
     <artifactId>validation-core</artifactId>
+    <name>validation-core</name>
+    <description>Core validation logic and constraints for the Validation Kit library.</description>
 
     <dependencies>
         <dependency>

@@ -6,10 +6,16 @@
     <parent>
         <groupId>io.github.validationkit</groupId>
         <artifactId>validation-kit-parent</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
+        <version>0.0.1</version>
     </parent>
 
     <artifactId>validation-samples</artifactId>
+    <name>validation-samples</name>
+    <description>Example usage of the Validation Kit library.</description>
+
+    <properties>
+        <maven.deploy.skip>true</maven.deploy.skip>
+    </properties>
 
     <dependencies>
 
