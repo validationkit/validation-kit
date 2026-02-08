@@ -28,7 +28,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
  * <li>{@code hasSpecialChar} - requires at least one special character from the
  * allowed set (default true)</li>
  * <li>{@code allowedSpecialChars} - defines valid special characters (default
- * "@$!%*?&_#-")</li>
+ * "@$!%*?&amp;_#-")</li>
  * </ul>
  *
  * @author Hrushikesh Joshi
