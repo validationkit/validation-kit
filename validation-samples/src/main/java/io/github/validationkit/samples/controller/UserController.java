@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.github.validationkit.samples.dto.PasswordRequest;
 import java.util.Map;
 
 @RestController
@@ -21,6 +22,11 @@ public class UserController {
     @PostMapping
     public Map<String, String> createUser(@Valid @RequestBody UserRequest request) {
         return Map.of("status", "success", "message", "User created: " + request.getUsername());
+    }
+
+    @PostMapping("/validate-password")
+    public Map<String, String> validatePassword(@Valid @RequestBody PasswordRequest request) {
+        return Map.of("status", "success", "message", "Password is valid!");
     }
 
     @GetMapping("/search")
