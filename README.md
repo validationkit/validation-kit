@@ -1,9 +1,28 @@
 # Validation Kit
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.validationkit/validation-spring-boot-starter.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.validationkit/validation-spring-boot-starter)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Java 17+](https://img.shields.io/badge/Java-17%2B-blue)](https://adoptium.net/)
 
-A practical, modern validation library for Spring Boot applications.
-Validation Kit provides high-value custom constraints like `@AllowedValues`, `@Base64`, `@FileExtension`, and `@StrongPassword` that are missing from the standard Jakarta Bean Validation spec. It also includes an optional structured JSON error handler.
+A lightweight **extension** for **Jakarta Bean Validation** (Hibernate Validator) that **bridges the gap** between standard specifications and complex business logic. 
+
+Validation Kit works harmoniously alongside standard annotations like `@NotBlank`, `@Size`, and `@Email`, providing high-value custom constraints where the standard spec stops.
+
+## The Gap We Fill
+
+| Standard Jakarta | Gap | Validation Kit |
+| :--- | :--- | :--- |
+| `@Pattern` | Complex Regex | `@StrongPassword`, `@FileExtension` |
+| `@NotNull` | Values Config | `@AllowedValues` |
+| Manual Checks | Boilerplate | `@Base64` |
+
+```mermaid
+graph TD
+    A[Your Spring Boot App] --> B(Validation Kit);
+    B --> C{Jakarta Bean Validation};
+    C --> D[Hibernate Validator];
+    style B fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ## Installation
 
@@ -13,13 +32,14 @@ Add the dependency to your `pom.xml`:
 <dependency>
     <groupId>io.github.validationkit</groupId>
     <artifactId>validation-spring-boot-starter</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
 </dependency>
 ```
 
 ## Quick Start
 
 ### 1. Define your DTO
+Combine standard Jakarta annotations (like `@NotBlank`) with Validation Kit extensions:
 
 ```java
 public class UserRequest {
