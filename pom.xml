@@ -6,7 +6,7 @@
 
     <groupId>io.github.validationkit</groupId>
     <artifactId>validation-kit-parent</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2</version>
     <packaging>pom</packaging>
 
     <name>validation-kit-parent</name>
@@ -40,12 +40,12 @@
             <dependency>
                 <groupId>io.github.validationkit</groupId>
                 <artifactId>validation-core</artifactId>
-                <version>0.0.1</version>
+                <version>0.0.2</version>
             </dependency>
             <dependency>
                 <groupId>io.github.validationkit</groupId>
                 <artifactId>validation-spring-boot-starter</artifactId>
-                <version>0.0.1</version>
+                <version>0.0.2</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
