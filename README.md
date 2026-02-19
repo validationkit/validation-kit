@@ -4,25 +4,18 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Java 17+](https://img.shields.io/badge/Java-17%2B-blue)](https://adoptium.net/)
 
-A lightweight **extension** for **Jakarta Bean Validation** (Hibernate Validator) that **bridges the gap** between standard specifications and complex business logic. 
+## Why Validation Kit?
 
-Validation Kit works harmoniously alongside standard annotations like `@NotBlank`, `@Size`, and `@Email`, providing high-value custom constraints where the standard spec stops.
+<p>Ever found yourself or your team writing the same API payload validation logic again and again in each microservice? <br> Well, this library fixes that, it works hand-in-hand with your existing Hibernate Validator setup but gives you some extra constraints to make sure your API payload is valid. <br> Validation execution is fully handled by Hibernate Validator; Validation Kit only provides additional reusable constraints.</p>
 
-## The Gap We Fill
+**Use Validation Kit when:**
+- You want reusable DTO/API payload validation constraints
+- Multiple services need consistent validation rules
 
-| Standard Jakarta | Gap | Validation Kit |
-| :--- | :--- | :--- |
-| `@Pattern` | Complex Regex | `@StrongPassword`, `@FileExtension` |
-| `@NotNull` | Values Config | `@AllowedValues` |
-| Manual Checks | Boilerplate | `@Base64` |
-
-```mermaid
-graph TD
-    A[Your Spring Boot App] --> B(Validation Kit);
-    B --> C{Jakarta Bean Validation};
-    C --> D[Hibernate Validator];
-    style B fill:#f9f,stroke:#333,stroke-width:4px
-```
+**Validation Kit is NOT intended for:**
+- Business rule validation
+- Domain invariants
+- Replacing Jakarta Bean Validation
 
 ## Installation
 
@@ -76,6 +69,10 @@ validation:
 ```
 
 ## Error Response Format
+
+> This applies only if you are using provided error handler, which is optional
+
+Note: the naming of fields in this error response will not change in future so your code which consumes this response will not break. But note that we may need to introduce additional attributes/fields to give more details, please write your code in such a way that it doesn't break with new fields.
 
 ```json
 {
@@ -158,7 +155,23 @@ public class PasswordRequest {
 - `hasSpecialChar` (default: `true`): Requires at least one special character.
 - `allowedSpecialChars` (default: `"@$!%*?&_#-"`): The set of allowed special characters (used only if `hasSpecialChar` is true).
 
+## Motivation
+This project originated from microservice environments where identical validation rules were repeatedly implemented across services, leading to drift and maintenance overhead.
 
+## Design Philosophy
+- Builds on Jakarta Bean Validation
+- No custom execution engine
+- Focused on boundary validation (API payload validation)
+
+## Compatibility
+
+Validation Kit follows Jakarta Bean Validation standards and is tested with:
+
+- Java 17+
+- Spring Boot 3.x
+- Hibernate Validator 8.x
+
+The library does not modify the validation lifecycle and should remain compatible with future Jakarta Validation implementations.
 
 ## License
 
