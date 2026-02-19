@@ -6,7 +6,7 @@
 
 ## Why Validation Kit?
 
-<p>Ever found yourself or your team writing the same API payload validation logic again and again in each microservice? <br> Well, this library fixes that, it works hand-in-hand with your existing Hibernate Validator setup but gives you some extra constraints to make sure your API payload is valid. <br> Validation execution is fully handled by Hibernate Validator; Validation Kit only provides additional reusable constraints.</p>
+*Ever found yourself or your team writing the same API payload validation logic again and again in each microservice?* <br> **Validation Kit solves this**. It works hand-in-hand with your existing Hibernate Validator setup but gives you some extra constraints to make sure your API payload is valid. <br> ✅ **Execution remains unchanged:** <br> Validation execution is fully handled by Hibernate Validator; Validation Kit only provides additional reusable constraints.
 
 **Use Validation Kit when:**
 - You want reusable DTO/API payload validation constraints
