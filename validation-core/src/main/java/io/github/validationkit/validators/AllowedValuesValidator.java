@@ -23,10 +23,29 @@ public class AllowedValuesValidator implements ConstraintValidator<AllowedValues
         this.caseSensitive = constraintAnnotation.caseSensitive();
         this.acceptNull = constraintAnnotation.acceptNull();
 
+        Set<String> values = new HashSet<>();
+
+        if (constraintAnnotation.value() != null) {
+            values.addAll(Arrays.asList(constraintAnnotation.value()));
+        }
+
+        if (constraintAnnotation.enumClass() != null) {
+            for (Class<? extends Enum<?>> enumClazz : constraintAnnotation.enumClass()) {
+                for (Enum<?> enumConstant : enumClazz.getEnumConstants()) {
+                    values.add(enumConstant.name());
+                }
+            }
+        }
+
+        if (values.isEmpty()) {
+            throw new jakarta.validation.ConstraintDeclarationException(
+                    "@AllowedValues requires at least one value in 'value' or 'enumClass'");
+        }
+
         if (this.caseSensitive) {
-            this.allowedValues = new HashSet<>(Arrays.asList(constraintAnnotation.value()));
+            this.allowedValues = values;
         } else {
-            this.allowedValues = Arrays.stream(constraintAnnotation.value())
+            this.allowedValues = values.stream()
                     .map(String::toLowerCase)
                     .collect(Collectors.toSet());
         }

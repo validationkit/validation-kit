@@ -3,6 +3,7 @@ package io.github.validationkit.samples.dto;
 import io.github.validationkit.constraints.AllowedValues;
 import io.github.validationkit.constraints.Base64;
 import io.github.validationkit.constraints.FileExtension;
+import io.github.validationkit.samples.types.AccountStatus;
 import jakarta.validation.constraints.NotBlank;
 import java.util.Collection;
 
@@ -10,6 +11,10 @@ public class UserRequest {
 
     @NotBlank(message = "Username is required")
     private String username;
+
+
+    @AllowedValues(enumClass = AccountStatus.class, message = "Status must be a valid AccountStatus")
+    private String status;
 
     @AllowedValues(value = { "admin", "user", "guest" }, message = "Role must be one of {value}")
     @NotBlank(message = "Role is required")
@@ -34,6 +39,14 @@ public class UserRequest {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getRole() {

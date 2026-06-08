@@ -13,8 +13,14 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import jakarta.validation.ConstraintDeclarationException;
 
 class AllowedValuesValidatorTest {
+
+    private enum TestEnum {
+        JAVA, PYTHON, GO
+    }
 
     private AllowedValuesValidator validator;
 
@@ -25,11 +31,13 @@ class AllowedValuesValidatorTest {
     @SuppressWarnings("all")
     private static class AllowedValuesMock implements AllowedValues {
         private final String[] value;
+        private final Class<? extends Enum<?>>[] enumClass;
         private final boolean caseSensitive;
         private final boolean acceptNull;
 
-        public AllowedValuesMock(String[] value, boolean caseSensitive, boolean acceptNull) {
+        public AllowedValuesMock(String[] value, Class<? extends Enum<?>>[] enumClass, boolean caseSensitive, boolean acceptNull) {
             this.value = value;
+            this.enumClass = enumClass;
             this.caseSensitive = caseSensitive;
             this.acceptNull = acceptNull;
         }
@@ -56,6 +64,11 @@ class AllowedValuesValidatorTest {
         }
 
         @Override
+        public Class<? extends Enum<?>>[] enumClass() {
+            return enumClass;
+        }
+
+        @Override
         public boolean caseSensitive() {
             return caseSensitive;
         }
@@ -76,7 +89,7 @@ class AllowedValuesValidatorTest {
         MockitoAnnotations.openMocks(this);
         validator = new AllowedValuesValidator();
         // Default configuration
-        validator.initialize(new AllowedValuesMock(new String[] { "java", "python", "go" }, true, true));
+        validator.initialize(new AllowedValuesMock(new String[] { "java", "python", "go" }, new Class[] {}, true, true));
     }
 
     @Test
@@ -87,7 +100,7 @@ class AllowedValuesValidatorTest {
     @Test
     void shouldReturnFalseForNullWhenAcceptNullIsFalse() {
         // Re-initialize with acceptNull = false
-        validator.initialize(new AllowedValuesMock(new String[] { "java", "python", "go" }, true, false));
+        validator.initialize(new AllowedValuesMock(new String[] { "java", "python", "go" }, new Class[] {}, true, false));
         assertFalse(validator.isValid(null, context));
     }
 
@@ -108,7 +121,7 @@ class AllowedValuesValidatorTest {
     @Test
     void shouldValidateStringCaseInsensitive() {
         // Re-initialize with caseSensitive = false
-        validator.initialize(new AllowedValuesMock(new String[] { "java", "python", "go" }, false, true));
+        validator.initialize(new AllowedValuesMock(new String[] { "java", "python", "go" }, new Class[] {}, false, true));
 
         assertTrue(validator.isValid("JAVA", context));
         assertTrue(validator.isValid("PyThOn", context));
@@ -142,5 +155,41 @@ class AllowedValuesValidatorTest {
 
         assertTrue(validator.isValid(validObj, context));
         assertFalse(validator.isValid(invalidObj, context));
+    }
+
+    @Test
+    void shouldValidateEnumCorrectly() {
+        validator.initialize(new AllowedValuesMock(new String[] {}, new Class[] { TestEnum.class }, true, true));
+        assertTrue(validator.isValid("JAVA", context));
+        assertTrue(validator.isValid("PYTHON", context));
+        assertFalse(validator.isValid("java", context)); // case sensitive
+        assertFalse(validator.isValid("ruby", context));
+    }
+
+    @Test
+    void shouldValidateEnumCaseInsensitive() {
+        validator.initialize(new AllowedValuesMock(new String[] {}, new Class[] { TestEnum.class }, false, true));
+        assertTrue(validator.isValid("JAVA", context));
+        assertTrue(validator.isValid("python", context));
+        assertTrue(validator.isValid("gO", context));
+    }
+
+    @Test
+    void shouldValidateCombinedValuesAndEnums() {
+        validator.initialize(new AllowedValuesMock(new String[] { "ruby" }, new Class[] { TestEnum.class }, true, true));
+        assertTrue(validator.isValid("JAVA", context));
+        assertTrue(validator.isValid("ruby", context));
+        assertFalse(validator.isValid("java", context));
+    }
+
+    @Test
+    void shouldThrowExceptionWhenConfigIsEmpty() {
+        assertThrows(ConstraintDeclarationException.class, () -> {
+            validator.initialize(new AllowedValuesMock(new String[] {}, new Class[] {}, true, true));
+        });
+        
+        assertThrows(ConstraintDeclarationException.class, () -> {
+            validator.initialize(new AllowedValuesMock(null, null, true, true));
+        });
     }
 }

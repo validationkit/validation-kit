@@ -45,7 +45,12 @@ public @interface AllowedValues {
     /**
      * The array of allowed values.
      */
-    String[] value();
+    String[] value() default {};
+
+    /**
+     * The enum classes whose constants should be treated as allowed values.
+     */
+    Class<? extends Enum<?>>[] enumClass() default {};
 
     /**
      * Whether the check should be case-sensitive.

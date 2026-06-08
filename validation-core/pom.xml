@@ -17,8 +17,6 @@
         <dependency>
             <groupId>jakarta.validation</groupId>
             <artifactId>jakarta.validation-api</artifactId>
-            <!-- Version managed by Spring Boot dependencies or define explicitly if needed, 
-                 but for pure core we can stick to the jakarta version -->
         </dependency>
         
         <!-- Testing -->

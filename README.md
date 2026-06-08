@@ -97,12 +97,19 @@ Validates that a field is one of the allowed strings.
 ```java
 @AllowedValues(value = {"admin", "user"}, caseSensitive = false)
 private String role;
+
+// Validates against enum constants
+@AllowedValues(enumClass = ProductCategory.class)
+private String category;
 ```
 
 **Attributes:**
-- `value` (required): Array of allowed string values.
+- `value` (optional*): Array of allowed string values.
+- `enumClass` (optional*): Array of Enum classes whose constants are allowed. Only the `name()` of the enum is matched (not `toString()`). Note that if `caseSensitive` is `false`, enum names will also be checked case-insensitively (e.g., `ELECTRONICS` will match `"electronics"`).
 - `caseSensitive` (default: `true`): Whether the check matches case.
 - `acceptNull` (default: `true`): Whether `null` is considered valid (standard Bean Validation behavior). Use `@NotNull` to reject nulls.
+
+*\* Note: At least one of `value` or `enumClass` must be provided, otherwise a `ConstraintDeclarationException` will be thrown at startup.*
 
 ### `@Base64`
 Validates that a string is a valid Base64 encoded sequence using `java.util.Base64`.

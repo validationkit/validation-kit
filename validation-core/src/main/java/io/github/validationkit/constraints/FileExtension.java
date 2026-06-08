@@ -16,7 +16,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 /**
  * Validates that the string (filename) ends with one of the allowed extensions.
  * <p>
- * This validator is case-insensitive by default.
+ * This validator is <b>case-insensitive</b> by default.
  * Use {@link #caseSensitive()} to change this behavior.
  * <p>
  * Example:
