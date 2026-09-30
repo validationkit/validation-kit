@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import io.github.validationkit.samples.dto.PasswordRequest;
+import io.github.validationkit.constraints.UUIDString;
+import org.springframework.web.bind.annotation.PathVariable;
 import java.util.Map;
 
 @RestController
@@ -33,5 +35,11 @@ public class UserController {
     public Map<String, String> searchUsers(
             @RequestParam @AllowedValues({ "active", "inactive" }) String status) {
         return Map.of("status", "success", "message", "Found users with status: " + status);
+    }
+
+    @GetMapping("/{id}")
+    public Map<String, String> getUserById(
+            @PathVariable @UUIDString(message = "User ID must be a valid UUID") String id) {
+        return Map.of("status", "success", "userId", id);
     }
 }

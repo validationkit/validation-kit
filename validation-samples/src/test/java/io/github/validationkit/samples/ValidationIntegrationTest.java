@@ -8,6 +8,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.*;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -93,5 +94,26 @@ class ValidationIntegrationTest {
         .andExpect(jsonPath("$.errors[?(@.field == 'avatarBase64')].code").value(hasItem("Base64")))
         .andExpect(jsonPath("$.errors[?(@.field == 'avatarBase64')].message")
             .value(hasItem("Avatar must be a valid Base64 string")));
+  }
+
+  @SuppressWarnings("null")
+  @Test
+  void shouldReturn200ForValidUuidPathVariable() throws Exception {
+    String validUuid = "123e4567-e89b-12d3-a456-426614174000";
+
+    mockMvc.perform(get("/api/users/" + validUuid))
+        .andExpect(status().isOk())
+        .andExpect(jsonPath("$.userId").value(validUuid));
+  }
+
+  @SuppressWarnings("null")
+  @Test
+  void shouldReturn400ForInvalidUuidPathVariable() throws Exception {
+    String invalidUuid = "not-a-valid-uuid";
+
+    mockMvc.perform(get("/api/users/" + invalidUuid))
+        .andExpect(status().isBadRequest())
+        .andExpect(jsonPath("$.status").value(400))
+        .andExpect(jsonPath("$.message").value("Validation failed"));
   }
 }
