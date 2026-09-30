@@ -25,7 +25,7 @@ Add the dependency to your `pom.xml`:
 <dependency>
     <groupId>io.github.validationkit</groupId>
     <artifactId>validation-spring-boot-starter</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.4</version>
 </dependency>
 ```
 
@@ -161,6 +161,26 @@ public class PasswordRequest {
 - `hasDigit` (default: `true`): Requires at least one digit.
 - `hasSpecialChar` (default: `true`): Requires at least one special character.
 - `allowedSpecialChars` (default: `"@$!%*?&_#-"`): The set of allowed special characters (used only if `hasSpecialChar` is true).
+
+### `@UUIDString`
+Validates that a string is a valid UUID string representation. Prevents import collisions with `java.util.UUID`.
+
+```java
+@UUIDString
+private String userId;
+
+// Restrict validation to UUID version 4
+@UUIDString(version = 4)
+private String transactionId;
+
+// Allow 32-character hex strings without hyphens
+@UUIDString(allowWithoutHyphens = true)
+private String rawUuid;
+```
+
+**Attributes:**
+- `version` (default: `0`): Restricts check to a specific UUID version (1-5). `0` allows any valid UUID version.
+- `allowWithoutHyphens` (default: `false`): Allows 32-character hex strings without hyphens (e.g., `123e4567e89b12d3a456426614174000`).
 
 ## Motivation
 This project originated from microservice environments where identical validation rules were repeatedly implemented across services, leading to drift and maintenance overhead.
