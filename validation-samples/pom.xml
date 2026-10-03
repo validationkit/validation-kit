@@ -60,6 +60,7 @@
                 <artifactId>central-publishing-maven-plugin</artifactId>
                 <configuration>
                     <skip>true</skip>
+                    <skipPublishing>true</skipPublishing>
                 </configuration>
             </plugin>
         </plugins>
