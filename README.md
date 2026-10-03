@@ -2,7 +2,7 @@
 
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.validationkit/validation-spring-boot-starter.svg?label=Maven%20Central)](https://central.sonatype.com/artifact/io.github.validationkit/validation-spring-boot-starter)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Java 17+](https://img.shields.io/badge/Java-17%2B-blue)](https://adoptium.net/)
+[![Java 25+](https://img.shields.io/badge/Java-25%2B-blue)](https://adoptium.net/)
 
 ## Why Validation Kit?
 
@@ -194,7 +194,7 @@ This project originated from microservice environments where identical validatio
 
 Validation Kit follows Jakarta Bean Validation standards and is tested with:
 
-- Java 17+
+- Java 25+
 - Spring Boot 3.x
 - Hibernate Validator 8.x
 
