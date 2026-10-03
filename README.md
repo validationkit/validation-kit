@@ -195,7 +195,7 @@ This project originated from microservice environments where identical validatio
 Validation Kit follows Jakarta Bean Validation standards and is tested with:
 
 - Java 25+
-- Spring Boot 3.x
+- Spring Boot 3.5+
 - Hibernate Validator 8.x
 
 The library does not modify the validation lifecycle and should remain compatible with future Jakarta Validation implementations.
